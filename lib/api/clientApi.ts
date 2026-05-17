@@ -82,12 +82,10 @@ export async function login(data: LoginRequest) {
   return res.data;
 }
 
-//Функція розлогін
 export async function logout() {
   await proxyServerApi.post("/auth/logout");
 }
 
-// Функція перевірки наявності сесії
 export const checkSession = async () => {
   try {
     await proxyServerApi.get("/auth/session");
@@ -97,13 +95,11 @@ export const checkSession = async () => {
   }
 };
 
-//Отримання об’єкта користувача
 export const getMe = async () => {
   const { data } = await proxyServerApi.get<User>("/users/me");
   return data;
 };
 
-//Функція оновлення профілю
 export type EditProfileRequest = {
   username: string;
 };
